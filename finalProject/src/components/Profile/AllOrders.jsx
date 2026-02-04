@@ -1,3 +1,63 @@
+import React, { useEffect, useState } from 'react'
+
+export default function AllOrders() {
+  const [orders, setOrders] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    let mounted = true
+    async function fetchOrders() {
+      try {
+        const res = await fetch('/api/orders', { credentials: 'include' })
+        const data = await res.json()
+        if (!mounted) return
+        if (data.success) setOrders(data.data || [])
+        else setError(data.message || 'Failed to load orders')
+      } catch (err) {
+        if (!mounted) return
+        setError(err.message)
+      } finally {
+        if (mounted) setLoading(false)
+      }
+    }
+    fetchOrders()
+    return () => { mounted = false }
+  }, [])
+
+  if (loading) return <div>Loading orders...</div>
+  if (error) return <div className="text-red-600">Error: {error}</div>
+
+  if (!orders.length) return <div>No orders found.</div>
+
+  return (
+    <div className="space-y-4">
+      {orders.map(order => (
+        <div key={order._id} className="p-4 border rounded">
+          <div className="flex justify-between items-center">
+            <div>
+              <div className="font-semibold">Order #{order._id}</div>
+              <div className="text-sm text-gray-500">{new Date(order.createdAt).toLocaleString()}</div>
+            </div>
+            <div className="text-right">
+              <div className="font-medium">Total: ${order.total?.toFixed(2)}</div>
+              <div className="text-sm">Status: {order.paymentStatus}</div>
+            </div>
+          </div>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            {(order.items || []).slice(0,6).map((it, idx) => (
+              <div key={idx} className="text-xs border p-1">
+                <div className="font-semibold">{it.name}</div>
+                <div>Qty: {it.qty}</div>
+                <div>Price: ${it.price?.toFixed(2)}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
 // import React from 'react'
 // import { AiOutlineArrowRight } from 'react-icons/ai';
 // import { Link } from 'react-router-dom';

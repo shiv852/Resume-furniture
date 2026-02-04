@@ -1,0 +1,34 @@
+# Ignore env files (local secrets)
+.env
+.env.*
+
+# Common credential files / keys
+credentials.json
+service-account.json
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+secrets.json
+google-credentials.json
+
+# AWS credentials
+.aws/credentials
+.aws/config
+aws_credentials
+
+# Node / npm auth
+.npmrc
+npm-debug.log
+
+# Logs / DB
+*.log
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if present in backend)
+node_modules/

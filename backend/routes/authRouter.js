@@ -1,4 +1,3 @@
-
 const router = require('express').Router();
 const {googleLogin} = require('../controller/authController')
 
@@ -7,4 +6,4 @@ router.get('/test',(req,res)=>{
 })
 
 router.get('/google',googleLogin)
-module.exports = router
+module.exports = router;

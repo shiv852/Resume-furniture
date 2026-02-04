@@ -22,3 +22,42 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Local env files (frontend secrets)
+.env
+.env.*
+.env.local
+.env.local.*
+.env.production
+.env.development
+.env.test
+
+# Credential files / keys
+credentials.json
+service-account.json
+google-credentials.json
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+
+# Common caches / build artifacts
+.cache
+.parcel-cache
+.vite
+build/
+dist/
+dist-ssr/
+coverage/
+coverage/**/*
+
+# Hosting & deployment
+.firebase/
+.vercel/
+.netlify/
+
+# Editor extras
+*.sublime-workspace
+
+# Misc
+*.local

@@ -15,6 +15,8 @@ import ProductdetailsPage from './components/ProductdetailsPage.jsx'
 import ProductPage from './routes/ProductPage.jsx'
 import ProfilePage from './components/Profile/ProfilePage.jsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import Checkout from './routes/Checkout.jsx'
+import OrderSuccess from './routes/OrderSuccess.jsx'
 
 const GoogleAuthWrapper=()=>{
   return(
@@ -32,6 +34,8 @@ const GoogleAuthWrapper=()=>{
         {path:"/" , element:<Home/>},
         {path:"/content" , element:<Content/>},
         {path:"/products" , element:<ProductPage/>},
+  {path:"/checkout", element:<Checkout/>},
+  {path:"/order-success/:id", element:<OrderSuccess/>},
         {path:"/login" , element:<GoogleAuthWrapper/>},
         {path:"/forgotpassword" , element:<ForgotPassword/>},
         {path:"/signup" , element:<SignUp/>},

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineCamera } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import styles from "../../styles/styles";
-// import AllOrders from "./AllOrders";
+import AllOrders from "./AllOrders";
 
 
 const ProfileContent = ({ active }) => {
@@ -139,13 +139,11 @@ const ProfileContent = ({ active }) => {
 
 
     {/* order page */}
-      {
-        active === 2 &&(
-          <div>
-            {/* <AllOrders/> */}
-          </div>
-        )
-      }
+      {active === 2 && (
+        <div>
+          <AllOrders />
+        </div>
+      )}
     </div>
   );
 };
