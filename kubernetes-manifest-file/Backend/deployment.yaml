@@ -25,7 +25,7 @@ spec:
       - name: ecr-registry-secret
       containers:
       - name: api
-        image: 407622020962.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+        image: shivsaini23/backend:latest
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR
@@ -42,15 +42,18 @@ spec:
                 key: password
         ports:
         - containerPort: 3000
+
+        #  Health checks (MATCH app.js)
         livenessProbe: 
           httpGet:
-            path: /ok
+            path: /health
             port: 3000
-          initialDelaySeconds: 2
-          periodSeconds: 5
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
         readinessProbe:
           httpGet:
-            path: /ok
+            path: /health
             port: 3000
           initialDelaySeconds: 5
           periodSeconds: 5

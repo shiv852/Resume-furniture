@@ -21,6 +21,13 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
   // hamara data jo user k pass se arha h vo json format m bdl jyega yha aate hi
   app.use(express.json())
   app.use(cookieParser())
+
+
+  app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
+
   app.use("/api" , router)
 
 // app.get("/" ,function(req , res){
@@ -32,7 +39,7 @@ const PORT = process.env.PORT || 3000
 
 connecteDb()
   .then(()=>{
-    app.listen(PORT,()=>{
+    app.listen(PORT, "0.0.0.0",()=>{
       console.log("connect to DB")
       console.log("server is running")
     })

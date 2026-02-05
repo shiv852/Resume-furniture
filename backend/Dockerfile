@@ -1,14 +1,23 @@
-FROM node:20
+FROM node:20-alpine
 
+# Create app directory
 WORKDIR /app
 
+# Copy only package files first (better caching)
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm install --production
+
+# Copy rest of the application code
 COPY . .
 
-RUN npm install
+# App runs on this port
+EXPOSE 3000
 
-EXPOSE  3000
-
+# Start the server
 CMD ["node", "app.js"]
+
 
 
 
