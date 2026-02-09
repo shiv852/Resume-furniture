@@ -4,19 +4,18 @@ metadata:
   name: furniture-ingress
   namespace: three-tier
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
-    - challenge.jaipurbestfurniture.shop
-    secretName: furniture-tls-secret
+    - challenge.shivkumarsaini.com
   rules:
-  - host: challenge.jaipurbestfurniture.shop
+  - host: challenge.shivkumarsaini.com
     http:
       paths:
-      # Frontend
+        # Frontend
       - path: /
         pathType: Prefix
         backend:
@@ -26,10 +25,11 @@ spec:
               number: 80
 
       # Backend API
-      - path: /api
+      - path: /api(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: api
             port:
               number: 3000
+              
