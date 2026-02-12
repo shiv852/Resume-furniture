@@ -257,10 +257,6 @@ kubectl get ing -n three-tier
 <img width="1649" height="711" alt="ingress" src="https://github.com/user-attachments/assets/52d2d8db-26f9-45e3-9e5c-c2297ea33317" />
 
  # check logs your website
-```bash
-<img width="1880" height="929" alt="Screenshot (114)" src="https://github.com/user-attachments/assets/f7f1f9ea-c888-49b7-9b67-b989fb8ce27c" />
-
-```
 <img width="1880" height="929" alt="Screenshot (114)" src="https://github.com/user-attachments/assets/41cf3835-8c7c-48c0-aca9-decb97e33767" />
 
 
@@ -273,7 +269,13 @@ kubectl get ing -n three-tier
 <img width="1615" height="926" alt="mongodbdata" src="https://github.com/user-attachments/assets/00ee778e-cbea-4179-90e8-c66320f13dc8" />
 <img width="1728" height="394" alt="Screenshot (118)" src="https://github.com/user-attachments/assets/dcce332b-6a2c-4867-8573-1afca3422858" />
 
+# Check all service in oneframe
+<img width="1372" height="629" alt="kubectl-get-all png" src="https://github.com/user-attachments/assets/fa753e3c-40ec-4e11-9e47-67bcbdda57a7" />
 
+
+
+ # domain is using HTTPS, but the certificate is not issued by a trusted Certificate Authority
+<img width="1639" height="616" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/f8504ac5-1ede-4d70-ba6e-c7579da6545b" />
 
 
 # 🧹 Cleanup
