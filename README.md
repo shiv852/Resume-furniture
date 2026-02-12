@@ -248,6 +248,19 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 ```
 
 
+ # check ingress 
+```bash
+kubectl get ing -n three-tier
+```
+
+ # check mongodb data in terminal (show user data)
+```bash
+ kubectl get pods -n three-tier
+ kubectl exec -it <pod-name> -n three-tier --/bin/sh
+```
+
+
+
 # 🧹 Cleanup
 
 ```bash
