@@ -254,6 +254,7 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 ```bash
 kubectl get ing -n three-tier
 ```
+<img width="1649" height="711" alt="ingress" src="https://github.com/user-attachments/assets/52d2d8db-26f9-45e3-9e5c-c2297ea33317" />
 
  # check mongodb data in terminal (show user data)
 ```bash
