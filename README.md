@@ -21,23 +21,25 @@ The application is containerized using Docker and deployed on AWS-backed Kuberne
 
 ## 🏗️ Architecture
 
-![Architecture](images/architecture.png)
+![architecture jpeg](https://github.com/user-attachments/assets/b594ace2-18ae-460b-973d-83f3e9fe9e52)
 
 ---
 
 ## 🖼️ Application Screenshots
 
 ### 🏠 Home Page
-![Home Page](images/home.png)
+<img width="1906" height="957" alt="homepage" src="https://github.com/user-attachments/assets/21fff27a-207c-46c1-a078-3799132bdfa1" />
 
 ### 🛒 Product Page
 ![Products](images/products.png)
 
 ### 🔐 Login Page
-![Login](images/login.png)
+<img width="1896" height="950" alt="login" src="https://github.com/user-attachments/assets/dde70b9c-a523-43f7-beb4-54dd27e749e4" />
 
 ### 📦 Kubernetes Deployment
-![K8s Deployment](images/k8s.png)
+
+<img width="1372" height="629" alt="kubectl-get-all png" src="https://github.com/user-attachments/assets/696187e0-5085-439b-8261-4e532f21ba48" />
+
 
 ---
 
