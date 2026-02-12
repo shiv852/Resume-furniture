@@ -209,7 +209,10 @@ Check pods:
 
 ```bash
 kubectl get pods -n three-tier
+
+output :- (three pods are running frontend, backend, mongodb)
 ```
+
 
 Check services:
 
