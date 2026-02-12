@@ -206,11 +206,12 @@ kubectl apply -f ingress.yaml -n three-tier
 ## 🔹 Verify Deployment
 
 Check pods:
+      
+      output :- (three pods are running frontend, backend, mongodb)
 
 ```bash
 kubectl get pods -n three-tier
 
-output :- (three pods are running frontend, backend, mongodb)
 ```
 
 
