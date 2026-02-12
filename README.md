@@ -31,7 +31,8 @@ The application is containerized using Docker and deployed on AWS-backed Kuberne
 <img width="1906" height="957" alt="homepage" src="https://github.com/user-attachments/assets/21fff27a-207c-46c1-a078-3799132bdfa1" />
 
 ### 🛒 Product Page
-![Products](images/products.png)
+<img width="1897" height="848" alt="Screenshot (147)" src="https://github.com/user-attachments/assets/2d0fd0f3-0fd1-4309-a08d-297323b0f595" />
+
 
 ### 🔐 Login Page
 <img width="1896" height="950" alt="login" src="https://github.com/user-attachments/assets/dde70b9c-a523-43f7-beb4-54dd27e749e4" />
