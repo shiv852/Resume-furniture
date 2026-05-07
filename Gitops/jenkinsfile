@@ -6,7 +6,6 @@ pipeline {
         string(name: 'FRONTEND_DOCKER_TAG', defaultValue: '', description: 'Frontend Docker tag of the image built by the CI job')
         string(name: 'BACKEND_DOCKER_TAG', defaultValue: '', description: 'Backend Docker tag of the image built by the CI job')
     }
-
     stages {
         stage("Workspace cleanup"){
             steps{
@@ -19,7 +18,7 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script{
-                    code_checkout("https://github.com/shiv852/Wanderlust-Mega-Project.git","main")
+                    code_checkout("https://github.com/shiv852/Resume-furniture.git","maindevops")
 
                 }
             }
@@ -40,13 +39,13 @@ pipeline {
                 script{
                     dir('kubernetes'){
                         sh """
-                            sed -i -e s/wanderlust-backend-beta.*/wanderlust-backend-beta:${params.BACKEND_DOCKER_TAG}/g backend.yaml
+                            sed -i -e s/furniture-backend-beta.*/wanderlust-backend-beta:${params.BACKEND_DOCKER_TAG}/g backend.yaml
                         """
                     }
                     
                     dir('kubernetes'){
                         sh """
-                            sed -i -e s/wanderlust-frontend-beta.*/wanderlust-frontend-beta:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
+                            sed -i -e s/furniture-frontend-beta.*/wanderlust-frontend-beta:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
                         """
                     }
                     
@@ -76,6 +75,7 @@ pipeline {
             }
         }
     }
+/*
   post {
         success {
             script {
@@ -131,3 +131,5 @@ pipeline {
         }
     }
 }
+*/
+
