@@ -39,13 +39,13 @@ pipeline {
                 script{
                     dir('kubernetes'){
                         sh """
-                            sed -i -e s/furniture-backend-beta.*/wanderlust-backend-beta:${params.BACKEND_DOCKER_TAG}/g backend.yaml
+                            sed -i -e s/furniture-backend-beta.*/furniture-backend-beta:${params.BACKEND_DOCKER_TAG}/g backend.yaml
                         """
                     }
                     
                     dir('kubernetes'){
                         sh """
-                            sed -i -e s/furniture-frontend-beta.*/wanderlust-frontend-beta:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
+                            sed -i -e s/furniture-frontend-beta.*/furniture-frontend-beta:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
                         """
                     }
                     
@@ -75,61 +75,3 @@ pipeline {
             }
         }
     }
-/*
-  post {
-        success {
-            script {
-                emailext(
-                    attachLog: true,
-                    from: 'kumarsainishiv59@gmail.com',
-                    subject: "Wanderlust Application has been updated and deployed - '${currentBuild.result}'",
-                    body: """
-                        <html>
-                        <body>
-                            <div style="background-color: #FFA07A; padding: 10px; margin-bottom: 10px;">
-                                <p style="color: black; font-weight: bold;">Project: ${env.JOB_NAME}</p>
-                            </div>
-                            <div style="background-color: #90EE90; padding: 10px; margin-bottom: 10px;">
-                                <p style="color: black; font-weight: bold;">Build Number: ${env.BUILD_NUMBER}</p>
-                            </div>
-                            <div style="background-color: #87CEEB; padding: 10px; margin-bottom: 10px;">
-                                <p style="color: black; font-weight: bold;">URL: ${env.BUILD_URL}</p>
-                            </div>
-                        </body>
-                        </html>
-                    """,
-                    to: 'kumarsainishiv59@gmail.com',
-                    mimeType: 'text/html'
-                )
-            }
-        }
-      failure {
-            script {
-               emailext(
-                attachLog: true,
-                from: 'kumarsainishiv59@gmail.com',
-                subject: "Wanderlust Application has been updated and deployed - '${currentBuild.result}'",
-                body: """
-                    <html>
-                    <body>
-                        <div style="background-color: #FFA07A; padding: 10px; margin-bottom: 10px;">
-                            <p style="color: black; font-weight: bold;">Project: ${env.JOB_NAME}</p>
-                        </div>
-                        <div style="background-color: #90EE90; padding: 10px; margin-bottom: 10px;">
-                            <p style="color: black; font-weight: bold;">Build Number: ${env.BUILD_NUMBER}</p>
-                        </div>
-                        <div style="background-color: #87CEEB; padding: 10px; margin-bottom: 10px;">
-                            <p style="color: black; font-weight: bold;">URL: ${env.BUILD_URL}</p>
-                        </div>
-                    </body>
-                    </html>
-                """,
-                to: 'kumarsainishiv59@gmail.com',
-                mimeType: 'text/html'
-                )
-            }
-        }
-    }
-}
-*/
-
