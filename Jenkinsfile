@@ -1,11 +1,11 @@
 @Library('Shared') _
 pipeline {
     agent any
-    
+    /*
     environment{
         SONAR_HOME = tool "Sonar"
     }
-    
+    */
     parameters {
         string(name: 'FRONTEND_DOCKER_TAG', defaultValue: '', description: 'Setting docker image for latest push')
         string(name: 'BACKEND_DOCKER_TAG', defaultValue: '', description: 'Setting docker image for latest push')
@@ -32,12 +32,12 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script{
-                    code_checkout("https://github.com/shiv852/Wanderlust-Mega-Project.git","main")
+                    code_checkout("https://github.com/shiv852/Resume-furniture.git","maindevops")
                     
                 }
             }
         }
-        
+        /*
         stage("Trivy: Filesystem scan"){
             steps{
                 script{
@@ -93,16 +93,16 @@ pipeline {
                 }
             }
         }
-        
+        */
         stage("Docker: Build Images"){
             steps{
                 script{
                         dir('backend'){
-                            docker_build("wanderlust-backend-beta","${params.BACKEND_DOCKER_TAG}","shivsaini23")
+                            docker_build("furniture-backend-beta","${params.BACKEND_DOCKER_TAG}","shivsaini23")
                         }
                     
                         dir('frontend'){
-                            docker_build("wanderlust-frontend-beta","${params.FRONTEND_DOCKER_TAG}","shivsaini23")
+                            docker_build("furniture-frontend-beta","${params.FRONTEND_DOCKER_TAG}","shivsaini23")
                         }
                 }
             }
@@ -111,8 +111,8 @@ pipeline {
         stage("Docker: Push to DockerHub"){
             steps{
                 script{
-                    docker_push("wanderlust-backend-beta","${params.BACKEND_DOCKER_TAG}","shivsaini23") 
-                    docker_push("wanderlust-frontend-beta","${params.FRONTEND_DOCKER_TAG}","shivsaini23")
+                    docker_push("furniture-backend-beta","${params.BACKEND_DOCKER_TAG}","shivsaini23") 
+                    docker_push("furniture-frontend-beta","${params.FRONTEND_DOCKER_TAG}","shivsaini23")
                 }
             }
         }
