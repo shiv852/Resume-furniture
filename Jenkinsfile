@@ -101,7 +101,7 @@ pipeline {
                             docker_build("furniture-backend-beta","${params.BACKEND_DOCKER_TAG}","shivsaini23")
                         }
                     
-                        dir('frontend'){
+                        dir('finalProject'){
                             docker_build("furniture-frontend-beta","${params.FRONTEND_DOCKER_TAG}","shivsaini23")
                         }
                 }
