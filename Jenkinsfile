@@ -108,7 +108,7 @@ pipeline {
             }
         }
         
-        stage("Docker: Push to DockerHub"){
+        stage("Docker: Push to docker"){
             steps{
                 script{
                     docker_push("furniture-backend-beta","${params.BACKEND_DOCKER_TAG}","shivsaini23") 
