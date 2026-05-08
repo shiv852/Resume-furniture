@@ -1,0 +1,15 @@
+app.js - fetch user details to the backend to frontend all token details 
+
+
+contextapi - is concept ko hamne use kra LoginUp.jsx section m 
+
+store =
+login section pr perform hoga ye sb ==  userSlice se ham backend m userdetails.js ka sara data frontend m app.jsx m le aayenge
+or usko display kra diya header.jsx m login section m
+
+
+
+                                  pending work on 
+
+                        ProductDetails.jsx page  (video 55:02:10) , 
+                        ( 1 : 40 : 34 )
