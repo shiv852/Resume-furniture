@@ -37,13 +37,13 @@ pipeline {
         stage("Update: Kubernetes manifests"){
             steps{
                 script{
-                    dir('kubernetes'){
+                    dir('kubernetes-manifest-file/Backend'){
                         sh """
                             sed -i -e s/furniture-backend-beta.*/furniture-backend-beta:${params.BACKEND_DOCKER_TAG}/g backend.yaml
                         """
                     }
                     
-                    dir('kubernetes'){
+                    dir('kubernetes-manifest-file/Frontend'){
                         sh """
                             sed -i -e s/furniture-frontend-beta.*/furniture-frontend-beta:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
                         """
@@ -52,7 +52,6 @@ pipeline {
                 }
             }
         }
-        
         stage("Git: Code update and push to GitHub"){
             steps{
                 script{
@@ -68,7 +67,7 @@ pipeline {
                         git commit -m "Update from Jenkins" || echo "No changes to commit"
                         
                         echo "Pushing changes to github: "
-                        git push origin main
+                        git push origin maindevops
                     '''
                     }
                 }
